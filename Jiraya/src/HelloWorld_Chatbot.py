@@ -1,55 +1,31 @@
-# # -*- coding: utf-8 -*-
-# 
-# from chatterbot import ChatBot
-# from chatterbot.trainers import ListTrainer
-# 
-# 
-# chatbot = ChatBot("Jiraya")
-# chatbot.set_trainer(ListTrainer)
-# 
-# conversation = [
-#     "Hello",
-#     "Hi there!",
-#     "Hi there!",
-#     "Hello",
-#     "How are you doing?",
-#     "I'm doing great.",
-#     "Cool!",
-#     "^_^"
-#     "That is good to hear",
-#     "Thank you.",
-#     "You're welcome.",
-# ]
-# 
-# chatbot.set_trainer(ListTrainer)
-# chatbot.train(conversation)
-# 
-# response = chatbot.get_response("Hello")
-# print(response)
-# 
-# response = chatbot.get_response("I am hungry.")
-# print(response)
+# -*- coding: utf-8 -*-
 
 from chatterbot import ChatBot
-import logging
+from chatterbot.trainers import ListTrainer
 
 
-'''
-This is an example showing how to train a chat bot using the
-Ubuntu Corpus of conversation dialog.
-'''
+chatbot = ChatBot("Jiraya")
+chatbot.set_trainer(ListTrainer)
 
-# Enable info level logging
-logging.basicConfig(level=logging.INFO)
+conversation = [
+    "Hello",
+    "Hi there!",
+    "Hi there!",
+    "Hello",
+    "How are you doing?",
+    "I'm doing great.",
+    "Cool!",
+    "^_^"
+    "That is good to hear",
+    "Thank you.",
+    "You're welcome.",
+]
 
-chatbot = ChatBot(
-    'Example Bot',
-    trainer='chatterbot.trainers.UbuntuCorpusTrainer'
-)
+chatbot.set_trainer(ListTrainer)
+chatbot.train(conversation)
 
-# Start by training our bot with the Ubuntu corpus data
-chatbot.train()
+response = chatbot.get_response("Hello")
+print(response)
 
-# Now let's get a response to a greeting
-response = chatbot.get_response('How are you doing today?')
+response = chatbot.get_response("I am hungry.")
 print(response)
